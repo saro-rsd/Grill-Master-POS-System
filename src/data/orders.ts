@@ -38,7 +38,7 @@ export const orders: Order[] = [
   {
     id: "o004",
     items: [{ ...products[9], quantity_number: 1 }],
-    total: 300,
+    total: 500,
     paymentMethod: "cash",
     cashierID: "u003",
     date: "2026-11-25T16:30:00.000Z",

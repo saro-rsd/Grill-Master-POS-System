@@ -18,7 +18,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
 
   const login = (username: string, password: string): boolean => {
-    const foundUser = users.find((user) => user.name === username);
+    const foundUser = users.find((u) => u.name === username);
 
     if (foundUser && password === "1234") {
       setUser(foundUser);

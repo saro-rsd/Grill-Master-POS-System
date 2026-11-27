@@ -2,7 +2,7 @@ import type { Product } from "../types/Product";
 
 export const products: Product[] = [
   {
-    id: "`p01",
+    id: "p001",
     name: "Gooey Gourmet Cheeseburger Feast",
     price: 1250,
     category: "burger",
@@ -11,7 +11,7 @@ export const products: Product[] = [
     available: true,
   },
   {
-    id: "p02",
+    id: "p002",
     name: "Gourmet Plant-Based Burger Feast",
     price: 1850,
     category: "burger",
@@ -20,7 +20,7 @@ export const products: Product[] = [
     available: true,
   },
   {
-    id: "p03",
+    id: "p003",
     name: "Smoky Gourmet Cheeseburger Feast",
     price: 950,
     category: "burger",
@@ -29,7 +29,7 @@ export const products: Product[] = [
     available: true,
   },
   {
-    id: "p04",
+    id: "p004",
     name: "Chilli Chicken Pizza Feast",
     price: 2150,
     category: "pizza",
@@ -38,7 +38,7 @@ export const products: Product[] = [
     available: false,
   },
   {
-    id: "p05",
+    id: "p005",
     name: "Devilled Bockwurst Pizza Advertisement",
     price: 2250,
     category: "pizza",
@@ -47,7 +47,7 @@ export const products: Product[] = [
     available: true,
   },
   {
-    id: "p06",
+    id: "p006",
     name: "Hot & Spicy Chicken Pizza",
     price: 2250,
     category: "pizza",
@@ -56,7 +56,7 @@ export const products: Product[] = [
     available: false,
   },
   {
-    id: "p07",
+    id: "p007",
     name: "Crispy Grill Master French Fries",
     price: 550,
     category: "fries",
@@ -65,16 +65,16 @@ export const products: Product[] = [
     available: true,
   },
   {
-    id: "p08",
+    id: "p008",
     name: "Sprite 400 ml Citrus",
     price: 300,
     category: "drink",
-    image: "/images/Sprite 400 ml Citrus.png",
+    image: "/images/Sprite 400 ml Citrus Splash Ad.png",
     stock: 20,
     available: true,
   },
   {
-    id: "p09",
+    id: "p009",
     name: "Coca-Cola 400ml Splash Showcase",
     price: 300,
     category: "drink",
