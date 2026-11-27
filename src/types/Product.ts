@@ -1,4 +1,4 @@
-export type Category = 'burger'|'fries'|'pizza'|'coffee'|'drink';
+export type Category = 'burger'|'fries'|'pizza'|'drink';
 
 export interface Product {
   id: string;
