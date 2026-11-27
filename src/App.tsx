@@ -4,6 +4,7 @@
 // import viteLogo from './assets/vite.svg'
 import "./App.css";
 import { useAuth } from "./hooks/useAuth";
+import AppRoutes from "./routers/AppRoutes";
 
 export default function App() {
   return <AppRoutes />;
