@@ -40,15 +40,48 @@ export default function Slidebar() {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
 
-  if(!user) return null;
+  if (!user) return null;
 
-  const handleLogout = () =>{
+  const handleLogout = () => {
     logout();
     navigate("/login");
   };
 
-  return(
-    
-  )
+  return (
+    <aside className="flex w-56 flex-col border-r border-line bg-panel p-4">
+      <img
+        src="/images/logo.png"
+        alt="Grill Master"
+        className="mx-auto mb-6 h-24"
+      />
 
+      <nav className="flex flex-1 flex-col gap-1">
+        {menus[user.role].map((item) => (
+          <NavLink
+            key={item.path}
+            to={item.path}
+            end
+            className={({ isActive }) =>
+              `flex items-center gap-3 rounded-lg px-3 py-2.5 font-medium ${
+                isActive
+                  ? "bg-gold text-black"
+                  : "text-gray-300 hover:bg-raised"
+              }`
+            }
+          >
+            <item.icon size={20} />
+            {item.label}
+          </NavLink>
+        ))}
+      </nav>
+
+      <button
+        onClick={handleLogout}
+        className="flex items-center justify-center gap-2 rounded-lg border border-red-500 py-2 text-red-500 hover:bg-red-500/10"
+      >
+        <LogOut size={18} />
+        Logout
+      </button>
+    </aside>
+  );
 }
