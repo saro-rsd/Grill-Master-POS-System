@@ -6,7 +6,7 @@ import { users } from "../data/users";
 
 interface AuthContextType {
   user: User | null;
-  login: (username: string, password: string) => boolean;
+  login: (username: string, password: string) => User | null;
   logout: () => void;
 }
 
@@ -15,20 +15,24 @@ export const AuthContext = createContext<AuthContextType | undefined>(
 );
 
 export function AuthProvider({ children }: { children: ReactNode }) {
-  const [user, setUser] = useState<User | null>(null);
+  const [user, setUser] = useState<User | null>(()=>{
+    const saved = localStorage.getItem("user");
+    return saved ? (JSON.parse(saved) as User) : null;
+  });
 
-  const login = (username: string, password: string): boolean => {
+  const login = (username: string, password: string): User | null => {
     const foundUser = users.find((u) => u.name === username);
 
     if (foundUser && password === "1234") {
       setUser(foundUser);
-      return true;
+      return foundUser;
     }
-    return false;
+    return null;
   };
 
   const logout = () => {
     setUser(null);
+    localStorage.removeItem("user");
   };
 
   return (
