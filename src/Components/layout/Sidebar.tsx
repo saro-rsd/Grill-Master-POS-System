@@ -36,7 +36,7 @@ const menus: Record<Role, MenuItem[]> = {
   ],
 };
 
-export default function Slidebar() {
+export default function Sidebar() {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
 

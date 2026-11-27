@@ -9,19 +9,23 @@ export default function Header() {
   useEffect(() => {
     const timer = setInterval(() => setNow(new Date()), 30000);
     return () => clearInterval(timer);
-  },[]);
+  }, []);
 
-  if(!user) return null;
+  if (!user) return null;
 
   const date = now.toLocaleDateString("en-GB", {
-    day: "2-digit", month: "short", year: "numeric",
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
   });
 
   const time = now.toLocaleDateString("en-US", {
-    hour: "2-digit", minute: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
   });
 
-  const title = user.role === "admin" ? "Admin Panel" : `Cashier : ${user.name}`;
+  const title =
+    user.role === "admin" ? "Admin Panel" : `Cashier : ${user.name}`;
 
   return (
     <header className="flex items-center justify-between border-b border-line bg-panel px-6 py-3">
@@ -42,5 +46,4 @@ export default function Header() {
       </div>
     </header>
   );
-
 }
