@@ -28,8 +28,7 @@ export default function AppRoutes() {
             <MainLayout />
           </ProtectedRoute>
         }
-      >
-      </Route>
+      ></Route>
       <Route path="/unauthorized" element={<Unauthorized />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
