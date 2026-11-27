@@ -20,8 +20,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     return saved ? (JSON.parse(saved) as User) : null;
   });
 
-  const login = (username: string, password: string): User | null => {
-    const foundUser = users.find((u) => u.name === username);
+  const login = (username: string, password: string) : User | null => {
+    console.log("typed:", JSON.stringify(username), JSON.stringify(password));
+  console.log("usernames:", users.map((u) => u.username));
+
+    const foundUser = users.find((u) => u.username === username);
 
     if (foundUser && password === "1234") {
       setUser(foundUser);

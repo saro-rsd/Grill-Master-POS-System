@@ -21,7 +21,7 @@ export default function AppRoutes() {
       />
 
       <Route
-        path="/cashier"
+        path="/pos"
         element={
           <ProtectedRoute allowedRoles={["cashier"]}>
             <POS />
