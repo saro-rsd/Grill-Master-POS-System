@@ -3,8 +3,8 @@ import Login from "../pages/auth/Login";
 import AdminDashboard from "../pages/admin/AdminDashboard";
 import POS from "../pages/cashier/POS";
 import Unauthorized from "../pages/Unauthorized";
-import NotFound from "../pages/NotFound";
 import ProtectedRoute from "./ProtectedRoute";
+import NotFound from "../pages/NotFound";
 import MainLayout from "../components/layout/MainLayout";
 
 export default function AppRoutes() {
@@ -12,7 +12,6 @@ export default function AppRoutes() {
     <Routes>
       <Route path="/" element={<Navigate to="/login" replace />} />
       <Route path="/login" element={<Login />} />
-
       <Route
         element={
           <ProtectedRoute allowedRoles={["admin"]}>
@@ -30,9 +29,7 @@ export default function AppRoutes() {
           </ProtectedRoute>
         }
       >
-        <Route path="/pos" element={<POS />} />
       </Route>
-
       <Route path="/unauthorized" element={<Unauthorized />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
