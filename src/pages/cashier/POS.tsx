@@ -5,10 +5,17 @@ import { products } from "../../data/products";
 import type { CategoryFilter } from "../../types/Product";
 import Cart from "../../features/cart/Cart";
 import { useCart } from "../../hooks/useCart";
+import { useOrders } from "../../hooks/useOrders";
+
+
 
 export default function POS() {
   const [category, setCategory] = useState<CategoryFilter>("all");
   const { addItem } = useCart();
+
+  const { orders } = useOrders();      // ← function eka ATHULE, useCart() ekata langa
+  console.log(orders.length);  
+
 
   const visibleProducts =
     category === "all"
