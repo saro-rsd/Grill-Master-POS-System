@@ -1,4 +1,5 @@
 import type { Product } from "../../types/Product";
+import { LOW_STOCK_LIMIT } from "../../util/constants";
 import { formatPrice } from "../../util/currency";
 
 interface ProductCardProps {
@@ -8,6 +9,7 @@ interface ProductCardProps {
 
 export default function ProductCard({ product, onAdd }: ProductCardProps) {
   const outOfStock = !product.available || product.stock === 0;
+  const lowStock = !outOfStock && product.stock <= LOW_STOCK_LIMIT;
 
   return (
     <button
@@ -28,6 +30,11 @@ export default function ProductCard({ product, onAdd }: ProductCardProps) {
           {formatPrice(product.price)}
         </p>
       </div>
+      {lowStock && (
+        <span className="absolute left-2 top-2 rounded bg-amber-500 px-2 py-0.5 text-xs font-semibold text-black">
+          Only {product.stock} left
+        </span>
+      )}
       {outOfStock && (
         <span className="absolute right-2 top-2 rounded bg-red-600 px-2 py-0.5 text-xs font-semibold">
           Out of stock
