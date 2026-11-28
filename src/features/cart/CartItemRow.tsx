@@ -13,6 +13,9 @@ export default function CartItemRow({
   onChangeQty,
   onRemove,
 }: CartItemRowProps) {
+  const qtyButton =
+  "grid h-8 w-8 place-items-center rounded-md border border-line bg-raised transition-colors enabled:hover:border-gold enabled:hover:text-gold enabled:active:scale-95 disabled:opacity-40";
+
   return (
     <div className="flex items-center gap-3 border-b border-line py-3">
       <img
@@ -28,7 +31,7 @@ export default function CartItemRow({
         <div className="mt-1 flex items-center gap-2">
           <button
             onClick={() => onChangeQty(item.id, -1)}
-            className="rounded border border-line p-1 hover:bg-raised"
+            className={qtyButton}
           >
             <Minus size={14} />
           </button>
@@ -40,7 +43,7 @@ export default function CartItemRow({
           <button
             onClick={() => onChangeQty(item.id, 1)}
             disabled={item.quantity_number >= item.stock}
-            className="rounded border border-line p-1 hover:bg-raised disabled:opacity-40"
+            className={qtyButton}
           >
             <Plus size={14} />
           </button>
