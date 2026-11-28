@@ -18,12 +18,14 @@ export default function ProductCard({ product, onAdd }: ProductCardProps) {
       disabled={outOfStock}
       className="group relative overflow-hidden rounded-xl border border-line bg-card text-left transition duration-200 enabled:hover:-translate-y-1 enabled:hover:border-gold enabled:hover:shadow-lg enabled:hover:shadow-gold/15 enabled:active:scale-[0.98] disabled:opacity-50"
     >
-      <img
-        src={product.image}
-        alt={product.name}
-        loading="lazy"
-        className="aspect-4/3 w-full object-cover"
-      />
+      <div className="overflow-hidden">
+        <img
+          src={product.image}
+          alt={product.name}
+          loading="lazy"
+          className="aspect-4/3 w-full object-cover transition duration-300 group-enabled:group-hover:scale-105"
+        />
+      </div>
 
       <div className="p-3">
         <h3 className="line-clamp-2 min-h-12 font-semibold">{product.name}</h3>
