@@ -14,3 +14,42 @@ body {
   background-color: var(--color-page);
   color: rgb(10, 10, 10);
 }
+
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not(:disabled),
+  a[href],
+  select,
+  summary{
+    cursor: pointer;
+  }
+
+  button:disabled {
+    cursor: not-allowed;
+  }
+}
+
+*::-webkit-scrollbar{
+  width:8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track{
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb{
+  background: var(--color-line);
+  border-radius: 9999px;
+}
+
+*::-webkit-scrollbar-thumb:hover{
+  background: var(--color-gold);
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-line) transparent;
+  }
+}
