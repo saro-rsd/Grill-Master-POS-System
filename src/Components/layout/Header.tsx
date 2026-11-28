@@ -19,7 +19,7 @@ export default function Header() {
     year: "numeric",
   });
 
-  const time = now.toLocaleDateString("en-US", {
+  const time = now.toLocaleTimeString("en-US", {
     hour: "2-digit",
     minute: "2-digit",
   });
