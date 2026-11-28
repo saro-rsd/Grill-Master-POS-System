@@ -1,3 +1,4 @@
+import type { CartesianDataPoint } from "recharts";
 import type { CartItem } from "../../types/Cart";
 import type { Product } from "../../types/Product";
 
@@ -34,4 +35,15 @@ export function changeQuantity(
         : item,
     )
     .filter((item) => item.quantity_number > 0);
+}
+
+export function removeFromCart(items: CartItem[], id: string): CartItem[] {
+  return items.filter((item) => item.id !== id);
+}
+
+export function calculateSubtotal(items: CartItem[]): number {
+  return items.reduce(
+    (sum, item) => sum + item.price * item.quantity_number,
+    0,
+  );
 }
