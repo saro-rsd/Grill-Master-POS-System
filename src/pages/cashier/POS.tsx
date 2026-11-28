@@ -15,13 +15,13 @@ export default function POS (){
 
     return (
         <div className="flex h-full gap-4">
-            <section className="flex flex-1 flex-xol gap-4 overflow-y-auto">
+            <section className="flex flex-1 flex-col gap-4 overflow-y-auto">
                 <CategoryTabs selected={category} onSelect={setCategory} />
                 <ProductGrid products={visibleProducts} onAdd={handleAdd} />
             </section>
 
             <aside className="w-96 rounded-xl border border-line bg-panel p-4">
-                <h2 className="text-x1 font-semibold">Current Order</h2>
+                <h2 className="text-xl font-semibold">Current Order</h2>
             </aside>
         </div>
     );
