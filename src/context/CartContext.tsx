@@ -9,7 +9,6 @@ import {
   removeFromCart,
   calculateSubtotal,
 } from "../features/cart/cartUtils";
-import { products } from "../data/products";
 
 interface CartContrextType {
   items: CartItem[];
@@ -17,7 +16,7 @@ interface CartContrextType {
   addItem: (product: Product) => void;
   changeQty: (id: string, change: number) => void;
   removeItem: (id: string) => void;
-  cleanCart: () => void;
+  clearCart: () => void;
 }
 
 export const CartContext = createContext<CartContrextType | undefined>(
@@ -34,4 +33,16 @@ export function CartProvider({children}:{children : ReactNode}){
     const removeItem = (id:string) => setItems ((prev) => removeFromCart(prev, id));
 
     const clearCart = () => setItems([]);
+
+    return (<CartContext.Provider
+        value ={{
+            items,
+            subtotal:calculateSubtotal(items),
+            addItem,
+            changeQty,
+            removeItem,
+            clearCart,
+        }}
+        >{children}</CartContext.Provider>
+    )
 }
