@@ -9,5 +9,10 @@ export function useLocatStorage<T>(key: string, initialValue: T){
             return initialValue;
         }
     });
-    
+
+    useEffect(() => {
+        localStorage.setItem(key, JSON.stringify(value));
+    }, [key, value]);
+
+    return [value, setValue] as const;
 };
