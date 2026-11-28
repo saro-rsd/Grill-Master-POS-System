@@ -1,16 +1,18 @@
 import type { CategoryFilter } from "../../types/Product";
+import { CupSoda, Hamburger, LayoutGrid, Pizza, Popcorn } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
 interface CategoryTabsProps {
   selected: CategoryFilter;
   onSelect: (category: CategoryFilter) => void;
 }
 
-const tabs: { value: CategoryFilter; label: string; emoji: string }[] = [
-  { value: "all", label: "All", emoji: "🍽️" },
-  { value: "burger", label: "Burgers", emoji: "🍔" },
-  { value: "pizza", label: "Pizza", emoji: "🍕" },
-  { value: "fries", label: "Fries", emoji: "🍟" },
-  { value: "drink", label: "Drinks", emoji: "🥤" },
+const tabs: { value: CategoryFilter; label: string; icon: LucideIcon }[] = [
+  { value: "all", label: "All", icon: LayoutGrid },
+  { value: "burger", label: "Burgers", icon: Hamburger },
+  { value: "pizza", label: "Pizza", icon: Pizza },
+  { value: "fries", label: "Fries", icon: Popcorn },
+  { value: "drink", label: "Drinks", icon: CupSoda },
 ];
 
 export default function CategoryTabs({
@@ -29,7 +31,7 @@ export default function CategoryTabs({
               : "bg-raised text-white hover:bg-line"
           }`}
         >
-          <span className="text-x1">{tab.emoji}</span>
+          <span className="text-x1"><tab.icon size={20} /></span>
           {tab.label}
         </button>
       ))}
