@@ -16,7 +16,7 @@ export default function ProductCard({ product, onAdd }: ProductCardProps) {
     <button
       onClick={() => onAdd(product)}
       disabled={outOfStock}
-      className="relative overflow-hidden rounded-xl border border-line bg-card text-left transition hover:border-gold disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:border-line"
+      className="group relative overflow-hidden rounded-xl border border-line bg-card text-left transition duration-200 enabled:hover:-translate-y-1 enabled:hover:border-gold enabled:hover:shadow-lg enabled:hover:shadow-gold/15 enabled:active:scale-[0.98] disabled:opacity-50"
     >
       <img
         src={product.image}
