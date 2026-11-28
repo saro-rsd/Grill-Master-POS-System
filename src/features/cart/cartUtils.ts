@@ -18,3 +18,20 @@ export function addToCart(items: CartItem[], product: Product): CartItem[] {
 
   return [...items, { ...product, quantity_number: 1 }];
 }
+
+export function changeQuantity(
+  items: CartItem[],
+  id: string,
+  change: number,
+): CartItem[] {
+  return items
+    .map((item) =>
+      item.id === id
+        ? {
+            ...item,
+            quantity: Math.min(item.quantity_number + change, item.stock),
+          }
+        : item,
+    )
+    .filter((item) => item.quantity_number > 0);
+}
