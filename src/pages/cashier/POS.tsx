@@ -2,12 +2,12 @@ import {useState} from "react";
 import CategoryTabs from "../../components/products/CategoryTabs";
 import ProductGrid from "../../components/products/ProductGrid";
 import { products } from "../../data/products";
-import type { Category, Product } from "../../types/Product";
+import type { CategoryFilter, Product } from "../../types/Product";
 
 export default function POS (){
-    const [category, setCategory] = useState<Category>("burger");
+    const [category, setCategory] = useState<CategoryFilter>("all");
 
-    const visibleProducts = products.filter((p) => p.category === category);
+    const visibleProducts = category === "all"? products:products.filter((p)=>p.category === category);
 
     const handleAdd = (product: Product) =>{
         console.log("add to cart:" ,product.name);

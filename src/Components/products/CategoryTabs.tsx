@@ -1,4 +1,3 @@
-import type { Category } from "../../types/Product";
 import type { CategoryFilter } from "../../types/Product";
 
 interface CategoryTabsProps {
