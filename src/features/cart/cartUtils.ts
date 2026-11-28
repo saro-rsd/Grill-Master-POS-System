@@ -12,7 +12,7 @@ export function addToCart(items: CartItem[], product: Product): CartItem[] {
 
     return items.map((item) =>
       item.id === product.id
-        ? { ...item, quantity: item.quantity_number + 1 }
+        ? { ...item, quantity_number: item.quantity_number + 1 }
         : item,
     );
   }
@@ -30,7 +30,7 @@ export function changeQuantity(
       item.id === id
         ? {
             ...item,
-            quantity: Math.min(item.quantity_number + change, item.stock),
+            quantity_number: Math.min(item.quantity_number + change, item.stock),
           }
         : item,
     )
