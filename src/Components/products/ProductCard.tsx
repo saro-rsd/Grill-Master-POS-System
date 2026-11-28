@@ -1,6 +1,7 @@
 import type { Product } from "../../types/Product";
 import { LOW_STOCK_LIMIT } from "../../util/constants";
 import { formatPrice } from "../../util/currency";
+import { Plus } from "lucide-react";
 
 interface ProductCardProps {
   product: Product;
@@ -26,9 +27,17 @@ export default function ProductCard({ product, onAdd }: ProductCardProps) {
 
       <div className="p-3">
         <h3 className="line-clamp-2 min-h-12 font-semibold">{product.name}</h3>
-        <p className="mt-1 font-semibold text-gold">
-          {formatPrice(product.price)}
-        </p>
+        <div className="mt-2 flex items-center justify-between">
+          <span className="rounded-lg bg-gold/15 px-2.5 py-1 font-display text-xl font-bold text-gold">
+            {formatPrice(product.price)}
+          </span>
+
+          {!outOfStock && (
+            <span className="grid h-8 w-8 place-items-center rounded-full bg-gold text-black">
+              <Plus size={18} strokeWidth={3} />
+            </span>
+          )}
+        </div>
       </div>
       {lowStock && (
         <span className="absolute left-2 top-2 rounded bg-amber-500 px-2 py-0.5 text-xs font-semibold text-black">
