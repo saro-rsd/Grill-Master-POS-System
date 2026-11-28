@@ -21,9 +21,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   });
 
   const login = (username: string, password: string) : User | null => {
-    console.log("typed:", JSON.stringify(username), JSON.stringify(password));
-  console.log("usernames:", users.map((u) => u.username));
-
     const foundUser = users.find((u) => u.username === username);
 
     if (foundUser && password === "1234") {
