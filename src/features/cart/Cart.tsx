@@ -12,6 +12,7 @@ export default function Cart(){
         <aside className="flex w-96 flex-col rounded-xl border border-line bg-panel p-4">
             <h2 className="flex items-center gap-2 text-xl font-semibold">
                 <ShoppingCart size={22} />
+                Current Order
             </h2>
 
             <div className="mt-3 flex-1 overflow-y-auto">
