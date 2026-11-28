@@ -10,15 +10,18 @@ import App from "./App.tsx";
 import { AuthProvider } from "./context/AuthContext.tsx";
 import { BrowserRouter } from "react-router-dom";
 import { CartProvider } from "./context/CartContext.tsx";
+import { OrderProvider } from "./context/OrderContext.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <BrowserRouter>
-     <CartProvider>
-       <AuthProvider>
-        <App />
-      </AuthProvider>
-     </CartProvider>
+      <CartProvider>
+        <OrderProvider>
+          <AuthProvider>
+            <App />
+          </AuthProvider>
+        </OrderProvider>
+      </CartProvider>
     </BrowserRouter>
   </StrictMode>,
 );
